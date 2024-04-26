@@ -37,7 +37,7 @@ app.get('/', (req, res) => {
         fs.readdir('pages', (err, files) => {
             if (err) throw err;
             const pages = files.map(file => path.parse(file).name);
-            res.render('index', { pages });
+            res.render('views_index', { pages });
         });
     } else {
         res.redirect('/login');
@@ -46,7 +46,7 @@ app.get('/', (req, res) => {
 
 // Rota para a página de login
 app.get('/login', (req, res) => {
-    res.render('login');
+    res.render('views_login');
 });
 
 // Rota para processar o login
@@ -71,7 +71,7 @@ app.use(checkAuth);
 
 // Rota para criar uma nova página
 app.get('/create_page', (req, res) => {
-    res.render('create_page');
+    res.render('views_create_page');
 });
 
 app.post('/create_page', (req, res) => {
